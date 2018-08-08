@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_details">Details</string>
+    <string name="pref_key">sort</string>
+    <string name="pref_title">Sort By</string>
+    <string name="pref_most_pop">Most Popular</string>
+    <string name="pref_more_rated">More Rated</string>
+    <string name="error">Error Appear...</string>
+
+    <string-array name="list_sort">
+        <item>@string/pref_most_pop</item>
+        <item>@string/pref_more_rated</item>
+    </string-array>
+
+</resources>

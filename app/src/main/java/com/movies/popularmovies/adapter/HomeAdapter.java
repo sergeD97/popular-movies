@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.movies.popularmovies.R;
-import com.movies.popularmovies.model.PosterMovie;
+import com.movies.popularmovies.model.Movie;
 import com.movies.popularmovies.utils.NetworkUtils;
 import com.squareup.picasso.Picasso;
 
@@ -22,10 +22,10 @@ import java.util.List;
  */
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
-    List<PosterMovie> listPoster;
+    List<Movie> listPoster;
     PosterItemClickListener listener;
 
-    public HomeAdapter(List<PosterMovie> listPoster, PosterItemClickListener listener) {
+    public HomeAdapter(List<Movie> listPoster, PosterItemClickListener listener) {
         this.listPoster = listPoster;
         this.listener = listener;
 
@@ -43,11 +43,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         this.listener = listener;
     }
 
-    public List<PosterMovie> getListPoster() {
+    public List<Movie> getListPoster() {
         return listPoster;
     }
 
-    public void setListPoster(List<PosterMovie> listPoster) {
+    public void setListPoster(List<Movie> listPoster) {
         this.listPoster = listPoster;
         notifyDataSetChanged();
     }
@@ -95,7 +95,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         }
 
         public void bind(int position){
-            PosterMovie posterMovie = listPoster.get(position);
+            Movie posterMovie = listPoster.get(position);
             titleTV.setText(posterMovie.getTitle());
 
             //TODO : load image with picasso
@@ -111,13 +111,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         @Override
         public void onClick(View v) {
             if(listener != null){
-                listener.onPosterClick(listPoster.get(getAdapterPosition()).getId());
+                listener.onPosterClick(listPoster.get(getAdapterPosition()));
             }
 
         }
     }
 
     public interface PosterItemClickListener{
-        public void onPosterClick(int idMovie);
+        public void onPosterClick(Movie movie);
     }
 }

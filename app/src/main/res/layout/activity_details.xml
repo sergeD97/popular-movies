@@ -1,36 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.movies.popularmovies.DetailsActivity">
-
-    <RelativeLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
-        <TextView
-            android:id="@+id/error_tv"
-            android:text="@string/error"
-            android:visibility="invisible"
-            android:layout_margin="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"/>
-
-        <ProgressBar
-            android:id="@+id/progressBar2"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="20dp"/>
-
         <android.support.constraint.ConstraintLayout
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:visibility="invisible"
             android:id="@+id/content_cl">
 
             <ImageView
@@ -48,6 +25,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/detail_margin"
+                android:layout_marginEnd="@dimen/fab_margin"
                 android:layout_marginTop="24dp"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
@@ -80,7 +58,83 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toEndOf="@+id/poster_iv"
                 app:layout_constraintTop_toBottomOf="@+id/date_tv" />
-        </android.support.constraint.ConstraintLayout>
-    </RelativeLayout>
 
-</ScrollView>
+            <Button
+                android:id="@+id/review_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/view_review"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/color_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/synopsis_tv" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:text="@string/title_trailer"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/review_btn" />
+
+            <TextView
+                android:id="@+id/error_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/error_trailer"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/trailer_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:layout_marginEnd="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <Button
+                android:id="@+id/fav_btn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_width"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/favorit_btn"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/color_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/poster_iv"
+                app:layout_constraintTop_toBottomOf="@+id/rated_tv" />
+        </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>

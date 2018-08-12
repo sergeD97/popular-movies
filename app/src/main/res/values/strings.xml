@@ -4,14 +4,26 @@
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_details">Details</string>
     <string name="pref_key">sort</string>
-    <string name="pref_title">Sort By</string>
+    <string name="pref_title">Filter criteria</string>
     <string name="pref_most_pop">Most Popular</string>
     <string name="pref_more_rated">More Rated</string>
+    <string name="pref_favorite">Favorites</string>
     <string name="error">Error Appear...</string>
+    <string name="popular">popular</string>
+    <string name="rated">top_rated</string>
+    <string name="favorite">favorite</string>
+    <string name="title_trailer">Trailers : </string>
+    <string name="view_review">View Reviews</string>
+    <string name="error_trailer">Unable to load trailers list</string>
+    <string name="favorit_btn">Mark as Favorite</string>
+    <string name="activity_reviews">Reviews</string>
+    <string name="success">success</string>
+
 
     <string-array name="list_sort">
         <item>@string/pref_most_pop</item>
         <item>@string/pref_more_rated</item>
+        <item>@string/pref_favorite</item>
     </string-array>
 
 </resources>

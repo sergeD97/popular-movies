@@ -1,6 +1,8 @@
 package com.movies.popularmovies.utils;
 
 import com.movies.popularmovies.model.Movie;
+import com.movies.popularmovies.model.Review;
+import com.movies.popularmovies.model.Trailer;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,6 +23,11 @@ public class JsonUtils {
     public static final String DATE_KEY = "release_date";
     public static final String ID_KEY = "id";
     public static final String LIST_KEY = "results";
+    public static final String NAME_KEY = "name";
+    public static final String KEY = "key";
+    public static final String AUTHOR_KEY = "author";
+    public static final String CONTENT_KEY = "content";
+
 
 
 
@@ -36,6 +43,44 @@ public class JsonUtils {
         return movie;
     }
 
+    public static Trailer buildTrailerFromJson(JSONObject jsonObject) throws JSONException{
+        Trailer trailer = new Trailer();
+        trailer.setKey(jsonObject.getString(KEY));
+        trailer.setName(jsonObject.getString(NAME_KEY));
+
+        return trailer;
+    }
+
+    public static Review buildReviewFromJson(JSONObject jsonObject) throws JSONException{
+        Review review = new Review();
+        review.setId(jsonObject.getString(ID_KEY));
+        review.setAuthor(jsonObject.getString(AUTHOR_KEY));
+        review.setContent(jsonObject.getString(CONTENT_KEY));
+
+        return review;
+    }
+
+
+    public static List<Review> buildReviewListFromJson(JSONArray jsonArray) throws JSONException{
+        List<Review> list = new ArrayList<>();
+        int lenght = jsonArray.length();
+        for(int i = 0; i < lenght; i++){
+            list.add(buildReviewFromJson(jsonArray.getJSONObject(i)));
+        }
+
+        return list;
+    }
+
+    public static List<Trailer> buildTrailerListFromJson(JSONArray jsonArray) throws JSONException{
+        List<Trailer> list = new ArrayList<>();
+        int lenght = jsonArray.length();
+        for(int i = 0; i < lenght; i++){
+            list.add(buildTrailerFromJson(jsonArray.getJSONObject(i)));
+        }
+
+        return list;
+    }
+
     public static List<Movie> buildMovieListFromJson(JSONArray jsonArray) throws JSONException{
         List<Movie> list = new ArrayList<>();
         int lenght = jsonArray.length();
@@ -45,6 +90,7 @@ public class JsonUtils {
 
         return list;
     }
+
 
     public static JSONArray getMoviesListJson(JSONObject jso) throws JSONException{
         return jso.getJSONArray(LIST_KEY);

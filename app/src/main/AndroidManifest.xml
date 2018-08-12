@@ -31,12 +31,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.movies.popularmovies.MainActivity" />
         </activity>
-        <activity android:name=".DetailsActivity"
+        <activity
+            android:name=".DetailsActivity"
             android:label="@string/title_activity_details"
+            android:launchMode="singleTop"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.movies.popularmovies.MainActivity" />
+        </activity>
+        <activity android:name=".ReviewsActivity"
+            android:parentActivityName=".DetailsActivity"
+            android:label="@string/activity_reviews">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.movies.popularmovies.DetailsActivity" />
         </activity>
     </application>
 

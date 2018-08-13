@@ -16,8 +16,10 @@
     <string name="view_review">View Reviews</string>
     <string name="error_trailer">Unable to load trailers list</string>
     <string name="favorit_btn">Mark as Favorite</string>
+    <string name="un_favorit_btn">Un-Favorite</string>
     <string name="activity_reviews">Reviews</string>
-    <string name="success">success</string>
+    <string name="success">favorite success</string>
+    <string name="unfav_success">un-favorite success</string>
 
 
     <string-array name="list_sort">

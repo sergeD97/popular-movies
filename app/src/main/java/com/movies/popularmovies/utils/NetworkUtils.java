@@ -15,7 +15,7 @@ import java.net.URL;
  * Created by root on 05/08/18.
  */
 
-public class NetworkUtils {
+public final class NetworkUtils {
 
 
     private static final String MOVIEDB_BASE_URL = "https://api.themoviedb.org/3";
@@ -25,6 +25,8 @@ public class NetworkUtils {
     public static  final String REVIEW = "/reviews";
     public static final String TRAILER = "/videos";
     public static final String YOUTUBE_WATCH = "https://www.youtube.com/watch?v=";
+
+    private NetworkUtils(){}
 
     public static URL buildMovieUrl(String query) {
         Uri builtUri = Uri.parse(MOVIEDB_BASE_URL+"/movie/"+query).buildUpon()

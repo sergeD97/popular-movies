@@ -120,13 +120,33 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
                 @Override
                 public void onChanged(@Nullable Movie movie) {
                     if(movie != null){
-                        fav_btn.setVisibility(View.INVISIBLE);
+                        fav_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                new AsyncTask<Void, Void,Void>(){
+                                    @Override
+                                    protected Void doInBackground(Void... voids) {
+                                        mDb.movieDao().delete(data);
+                                        return null;
+                                    }
+                                    @Override
+                                    protected void onPostExecute(Void aVoid) {
+                                        super.onPostExecute(aVoid);
+                                        Toast.makeText(DetailsActivity.this, getString(R.string.unfav_success), Toast.LENGTH_LONG).show();
+                                    }
+                                }.execute();
+                            }
+                        });
+                        fav_btn.setText(R.string.un_favorit_btn);
+                    }else{
+                        fav_btn.setOnClickListener(DetailsActivity.this);
+                        fav_btn.setText(R.string.favorit_btn);
                     }
                 }
             });
 
+
             review_btn.setOnClickListener(this);
-            fav_btn.setOnClickListener(this);
 
             Bundle queryBundle = new Bundle();
             queryBundle.putString(MOVIE_ID_EXTRA, String.valueOf(data.getId()));
